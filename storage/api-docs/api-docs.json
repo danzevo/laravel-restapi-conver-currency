@@ -1,0 +1,434 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "JDS API",
+    "version": "0.1",
+    "description": "api untuk jds api"
+  },
+  "paths": {
+    "localhost:8000/api/auth/login": {
+      "parameters": [],
+      "post": {
+        "summary": "Login",
+        "operationId": "post-api-login",
+        "description": "route for login",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "nik": "3273161609890001",
+                    "password": "3273161609890001"
+                  }
+                },
+                "properties": {
+                  "nik": {
+                    "type": "string",
+                    "minLength": 16,
+                    "maxLength": 16
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  }
+                },
+                "required": [
+                  "nik",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "id": 1,
+                      "name": null,
+                      "email": null,
+                      "email_verified_at": null,
+                      "created_at": "2021-12-20T11:01:02.000000Z",
+                      "updated_at": "2021-12-20T11:01:02.000000Z",
+                      "nik": "3273161609890001",
+                      "role": "superadmin"
+                    }
+                  },
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "email_verified_at": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "minLength": 1,
+                      "format": "date-time"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "minLength": 0,
+                      "format": "date-time"
+                    },
+                    "nik": {
+                      "type": "string",
+                      "minLength": 16
+                    },
+                    "role": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "nik",
+                    "role"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0MTE4MTQxMCwiZXhwIjoxNjQxMTg1MDEwLCJuYmYiOjE2NDExODE0MTAsImp0aSI6Imp5cnZUMnBFbjJMNXBVMUIiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.T_Ob6hvlcYROvehq9X4t59Iq3zNbOh9JGC-iPd5cshY",
+                      "token_type": "bearer",
+                      "expires_in": 3600,
+                      "user": {
+                        "id": 1,
+                        "name": null,
+                        "email": null,
+                        "email_verified_at": null,
+                        "created_at": "2021-12-20T11:01:02.000000Z",
+                        "updated_at": "2021-12-20T11:01:02.000000Z",
+                        "nik": "3273161609890001",
+                        "role": "superadmin"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "localhost:8000/api/auth/register": {
+      "parameters": [],
+      "post": {
+        "summary": "Register",
+        "operationId": "post-api-login",
+        "description": "route for register",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "nik": "3273161609890001",
+                    "password": "3273161609890001"
+                  }
+                },
+                "properties": {
+                  "nik": {
+                    "type": "string",
+                    "minLength": 16,
+                    "maxLength": 16
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string",
+                    "minLength": 8
+                  }
+                },
+                "required": [
+                  "nik",
+                  "password"
+                ]
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "id": 1,
+                      "name": null,
+                      "email": null,
+                      "email_verified_at": null,
+                      "created_at": "2021-12-20T11:01:02.000000Z",
+                      "updated_at": "2021-12-20T11:01:02.000000Z",
+                      "nik": "3273161609890001",
+                      "role": "superadmin"
+                    }
+                  },
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "email_verified_at": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "minLength": 1,
+                      "format": "date-time"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "minLength": 0,
+                      "format": "date-time"
+                    },
+                    "nik": {
+                      "type": "string",
+                      "minLength": 16
+                    },
+                    "role": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "nik",
+                    "role"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0MTE4MTQxMCwiZXhwIjoxNjQxMTg1MDEwLCJuYmYiOjE2NDExODE0MTAsImp0aSI6Imp5cnZUMnBFbjJMNXBVMUIiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.T_Ob6hvlcYROvehq9X4t59Iq3zNbOh9JGC-iPd5cshY",
+                      "token_type": "bearer",
+                      "expires_in": 3600,
+                      "user": {
+                        "id": 1,
+                        "name": null,
+                        "email": null,
+                        "email_verified_at": null,
+                        "created_at": "2021-12-20T11:01:02.000000Z",
+                        "updated_at": "2021-12-20T11:01:02.000000Z",
+                        "nik": "3273161609890001",
+                        "role": "superadmin"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "": {
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "role": "admin",
+                      "nik": "3273161609890002",
+                      "updated_at": "2022-01-07T00:56:19.000000Z",
+                      "created_at": "2022-01-07T00:56:19.000000Z",
+                      "id": 2
+                    }
+                  },
+                  "properties": {
+                    "role": {
+                      "type": "string",
+                      "minLength": 0
+                    },
+                    "nik": {
+                      "type": "string",
+                      "minLength": 16,
+                      "maxLength": 16
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "minLength": 1,
+                      "format": "date-time"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "minLength": 1,
+                      "format": "date-time"
+                    },
+                    "id": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "role",
+                    "nik",
+                    "updated_at",
+                    "created_at",
+                    "id"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "message": "User successfully registered",
+                      "user": {
+                        "role": "admin",
+                        "nik": "3273161609890002",
+                        "updated_at": "2022-01-07T00:56:19.000000Z",
+                        "created_at": "2022-01-07T00:56:19.000000Z",
+                        "id": 2
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "localhost:8000/api/auth/user-profile": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-localhost:8000-api-auth-user-profile",
+        "parameters": [],
+        "description": "get user profile data"
+      },
+      "parameters": []
+    },
+    "localhost:8000/api/auth/logout": {
+      "post": {
+        "summary": "Logout",
+        "operationId": "post-localhost:8000-api-auth-logout",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Logout operation"
+      },
+      "parameters": []
+    },
+    "localhost:8000/api/auth/lrefresh": {
+      "post": {
+        "summary": "Refresh",
+        "operationId": "post-localhost:8000-api-auth-logout",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Refresh token operation"
+      },
+      "parameters": []
+    },
+    "/localhost:3000/api/product": {
+      "get": {
+        "summary": "get product",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-localhost:3000-api-product",
+        "description": "get product from an another api and convert rate from usd to idr"
+      }
+    },
+    "/localhost:3000/api/product-summary": {
+      "get": {
+        "summary": "get product summary",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-localhost:3000-api-product-summary",
+        "description": "get product summary"
+      }
+    }
+  },
+  "security": [
+    []
+  ],
+  "components": {
+    "securitySchemes": {},
+    "schemas": {
+      "User": {
+        "title": "User",
+        "type": "object",
+        "description": "Tabel user",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "minLength": 8
+          },
+          "nik": {
+            "type": "string",
+            "minLength": 16,
+            "maxLength": 16
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}
